@@ -93,25 +93,25 @@
             app:layout_constraintTop_toBottomOf="@+id/hobbiesLabel">
 
             <CheckBox
-                android:id="@+id/aircraft"
+                android:id="@+id/cb_aircraft"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cb_aircraft" />
 
             <CheckBox
-                android:id="@+id/amRadio"
+                android:id="@+id/cb_amRadio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cb_amradio" />
 
             <CheckBox
-                android:id="@+id/bell"
+                android:id="@+id/cb_bell"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cb_bell" />
 
             <CheckBox
-                android:id="@+id/blacksmithing"
+                android:id="@+id/cb_blacksmithing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cb_bs" />
@@ -131,25 +131,25 @@
             app:layout_constraintTop_toTopOf="@+id/linearLayout">
 
             <CheckBox
-                android:id="@+id/bridge"
+                android:id="@+id/cb_bridge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cb_bridge" />
 
             <CheckBox
-                android:id="@+id/candle"
+                android:id="@+id/cb_candle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cb_candle" />
 
             <CheckBox
-                android:id="@+id/crochet"
+                android:id="@+id/cb_crochet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cb_crocheting" />
 
             <CheckBox
-                android:id="@+id/dumpster"
+                android:id="@+id/cb_dumpster"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cb_dumpster" />
