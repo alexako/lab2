@@ -2,6 +2,7 @@
     <string name="app_name">Lab1-Reyes_A</string>
 
     <string name="reg_label">User Registration</string>
+    <string name="res_label">User Information</string>
     <string name="next_registration">Next</string>
 
     <!-- Registration 1 -->
@@ -39,6 +40,15 @@
     <string name="cb_crocheting">Crocheting</string>
     <string name="cb_dumpster">Dumpster Diving</string>
 
+    <!-- Results Labels -->
+    <string name="res_name">Name:</string>
+    <string name="res_email">Email:</string>
+    <string name="res_password">Password:</string>
+    <string name="res_gender">Gender:</string>
+    <string name="res_program">Program:</string>
+    <string name="res_year">Year Level:</string>
+    <string name="res_birthday">Birthday:</string>
+    <string name="res_hobbies">Hobbies:</string>
 
     <string name="action_register">Register</string>
     <string name="action_sign_in">Sign in</string>
