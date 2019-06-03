@@ -5,12 +5,19 @@ import android.net.Uri;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.lab1_reyes_a.R;
+import com.example.lab1_reyes_a.ui.results.Results;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +25,8 @@ import java.util.List;
 public class RegistrationActivity extends AppCompatActivity
         implements Registration1.OnFragmentInteractionListener,
                     Registration2.OnFragmentInteractionListener {
+
+    private boolean isOnPage2;
 
     private String name;
     private String email;
@@ -27,7 +36,7 @@ public class RegistrationActivity extends AppCompatActivity
     private String degree;
     private String year;
     private String birthday;
-    private List<String> hobbies;
+    private String hobbies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +47,20 @@ public class RegistrationActivity extends AppCompatActivity
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create fragment and give it an argument specifying the article it should show
-                Registration2 reg2Fragment = new Registration2();
 
-                if (reg2Fragment.isVisible()) {
+                if (isOnPage2) {
                     storeReg2Values();
-//                    Intent intent = new Intent(this, ResultsAcivity.class);
-//                    String input = "";
-//                    intent.putExtra(EXTRA_MESSAGE, input);
-//                    startActivities(intent);
+                    Intent intent = new Intent(RegistrationActivity.this, Results.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("email", email);
+                    intent.putExtra("password", password);
+                    intent.putExtra("cPassword", cPassword);
+                    intent.putExtra("gender", gender);
+                    intent.putExtra("degree", degree);
+                    intent.putExtra("year", year);
+                    intent.putExtra("birthday", birthday);
+                    intent.putExtra("hobbies", hobbies);
+                    startActivity(intent);
                 } else { // Display registration Page 2
 
                     storeReg1Values();
@@ -55,11 +69,14 @@ public class RegistrationActivity extends AppCompatActivity
 
                     // Replace whatever is in the fragment_container view with this fragment,
                     // and add the transaction to the back stack so the user can navigate back
-                    transaction.replace(R.id.fragment_container, reg2Fragment);
+                    Registration2 reg2Fragment = new Registration2();
+                    transaction.replace(R.id.fragment_container, reg2Fragment, "REG2");
                     transaction.addToBackStack(null);
 
                     // Commit the transaction
                     transaction.commit();
+
+                    isOnPage2 = true;
                 }
             }
         });
@@ -89,21 +106,59 @@ public class RegistrationActivity extends AppCompatActivity
     }
 
     private void storeReg1Values() {
-        name = "test name";
-        email = "test@email.com";
-        password = "pass123";
-        cPassword = "pass123";
-        gender = "male";
+        EditText nText = findViewById(R.id.name);
+        EditText eText = findViewById(R.id.email);
+        EditText pText = findViewById(R.id.password);
+        EditText cText = findViewById(R.id.cPassword);
+
+        name = nText.getText().toString();
+        email = eText.getText().toString();
+        password = pText.getText().toString();
+        cPassword = cText.getText().toString();
+        gender = getSelectedRadio();
     }
 
     private void storeReg2Values() {
-        degree = "CS";
-        year = "2018/19";
-        birthday = "02/11/1987";
-        hobbies = new ArrayList<>();
-        hobbies.add("painting");
-        hobbies.add("sky diving");
-        hobbies.add("playing guitar");
+        Spinner dText = findViewById(R.id.degreeProgram);
+        EditText yearText = findViewById(R.id.yearLevel);
+        EditText bText = findViewById(R.id.birthday);
+
+        degree = dText.getSelectedItem().toString();
+        year = yearText.getText().toString();
+        birthday = bText.getText().toString();
+        hobbies = getSelectedCheckboxes();
+    }
+
+    private String getSelectedRadio() {
+        RadioGroup gGrp = findViewById(R.id.gender);
+        int id = gGrp.getCheckedRadioButtonId();
+        View radioButton = gGrp.findViewById(id);
+        int radioId = gGrp.indexOfChild(radioButton);
+        RadioButton btn = (RadioButton) gGrp.getChildAt(radioId);
+        return (String) btn.getText();
+    }
+
+    private String getSelectedCheckboxes() {
+        CheckBox c1 = findViewById(R.id.cb_aircraft);
+        CheckBox c2 = findViewById(R.id.cb_amRadio);
+        CheckBox c3 = findViewById(R.id.cb_bell);
+        CheckBox c4 = findViewById(R.id.cb_blacksmithing);
+        CheckBox c5 = findViewById(R.id.cb_bridge);
+        CheckBox c6 = findViewById(R.id.cb_candle);
+        CheckBox c7 = findViewById(R.id.cb_crochet);
+        CheckBox c8 = findViewById(R.id.cb_dumpster);
+        List<String> h = new ArrayList<>();
+
+        if (c1.isChecked()) h.add(c1.getText().toString());
+        if (c2.isChecked()) h.add(c2.getText().toString());
+        if (c3.isChecked()) h.add(c3.getText().toString());
+        if (c4.isChecked()) h.add(c4.getText().toString());
+        if (c5.isChecked()) h.add(c5.getText().toString());
+        if (c6.isChecked()) h.add(c6.getText().toString());
+        if (c7.isChecked()) h.add(c7.getText().toString());
+        if (c8.isChecked()) h.add(c8.getText().toString());
+
+        return TextUtils.join(", ", h.toArray(new String[0]));
     }
 
     @Override
