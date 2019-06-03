@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.lab1_reyes_a.R;
 
@@ -64,8 +66,15 @@ public class Registration2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_registration2, container, false);
+        Spinner dropdown = view.findViewById(R.id.degreeProgram);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.degree_programs, android.R.layout.simple_spinner_dropdown_item);
+        dropdown.setAdapter(adapter);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration2, container, false);
+//        return inflater.inflate(R.layout.fragment_registration2, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
