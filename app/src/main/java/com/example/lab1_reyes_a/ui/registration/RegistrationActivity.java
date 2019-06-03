@@ -1,18 +1,33 @@
 package com.example.lab1_reyes_a.ui.registration;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.example.lab1_reyes_a.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegistrationActivity extends AppCompatActivity
         implements Registration1.OnFragmentInteractionListener,
                     Registration2.OnFragmentInteractionListener {
 
+    private String name;
+    private String email;
+    private String password;
+    private String cPassword;
+    private String gender;
+    private String degree;
+    private String year;
+    private String birthday;
+    private List<String> hobbies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +41,26 @@ public class RegistrationActivity extends AppCompatActivity
                 // Create fragment and give it an argument specifying the article it should show
                 Registration2 reg2Fragment = new Registration2();
 
-                FragmentTransaction transaction = RegistrationActivity.this.getSupportFragmentManager().beginTransaction();
+                if (reg2Fragment.isVisible()) {
+                    storeReg2Values();
+//                    Intent intent = new Intent(this, ResultsAcivity.class);
+//                    String input = "";
+//                    intent.putExtra(EXTRA_MESSAGE, input);
+//                    startActivities(intent);
+                } else { // Display registration Page 2
 
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack so the user can navigate back
-                transaction.replace(R.id.fragment_container, reg2Fragment);
-                transaction.addToBackStack(null);
+                    storeReg1Values();
 
-                // Commit the transaction
-                transaction.commit();
+                    FragmentTransaction transaction = RegistrationActivity.this.getSupportFragmentManager().beginTransaction();
+
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack so the user can navigate back
+                    transaction.replace(R.id.fragment_container, reg2Fragment);
+                    transaction.addToBackStack(null);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
             }
         });
 
@@ -62,9 +88,41 @@ public class RegistrationActivity extends AppCompatActivity
         }
     }
 
+    private void storeReg1Values() {
+        name = "test name";
+        email = "test@email.com";
+        password = "pass123";
+        cPassword = "pass123";
+        gender = "male";
+    }
+
+    private void storeReg2Values() {
+        degree = "CS";
+        year = "2018/19";
+        birthday = "02/11/1987";
+        hobbies = new ArrayList<>();
+        hobbies.add("painting");
+        hobbies.add("sky diving");
+        hobbies.add("playing guitar");
+    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    public void showDatePickerDialog(View v) {
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+
+        newFragment.setOnDateClickListener(new onDateClickListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
+                TextView tv1 = findViewById(R.id.birthday);
+                tv1.setText(datePicker.getYear()+"/"+datePicker.getMonth()+"/"+datePicker.getDayOfMonth());
+            }
+
+        });
     }
 }
