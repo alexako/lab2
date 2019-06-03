@@ -31,9 +31,14 @@ public class Results extends AppCompatActivity {
         TextView valBirthday = findViewById(R.id.valBirthday);
         TextView valHobbies = findViewById(R.id.valHobbies);
 
+        String pass = "";
+        for (int i = 0; i < password.length(); i++) {
+            pass += "*";
+        }
+
         valName.setText(name);
         valEmail.setText(email);
-        valPass.setText(password);
+        valPass.setText(pass);
         valGender.setText(gender);
         valDegree.setText(degree);
         valYear.setText(year);
