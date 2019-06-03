@@ -10,7 +10,8 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#2a2a2a">
 
         <TextView
             android:id="@+id/formLabel2"
@@ -18,6 +19,7 @@
             android:layout_height="32dp"
             android:layout_marginTop="64dp"
             android:text="@string/reg_label"
+            android:textColor="#8a8a8a"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -45,6 +47,9 @@
             android:ems="10"
             android:hint="@string/prompt_year"
             android:inputType="number"
+            android:textColor="#8a8a8a"
+            android:textColorHint="#8a8a8a"
+            android:textColorLink="#32cd32"
             app:layout_constraintBottom_toBottomOf="@+id/degreeProgram"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/degreeProgram"
@@ -63,6 +68,9 @@
             android:hint="@string/prompt_birthday"
             android:inputType="date"
             android:onClick="showDatePickerDialog"
+            android:textColor="#8a8a8a"
+            android:textColorHint="#8a8a8a"
+            android:textColorLink="#32cd32"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/degreeProgram" />
@@ -75,6 +83,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
             android:text="@string/prompt_hobbies"
+            android:textColor="#8a8a8a"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/birthday" />
 
@@ -96,25 +105,35 @@
                 android:id="@+id/cb_aircraft"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cb_aircraft" />
+                android:text="@string/cb_aircraft"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
 
             <CheckBox
                 android:id="@+id/cb_amRadio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cb_amradio" />
+                android:text="@string/cb_amradio"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
 
             <CheckBox
                 android:id="@+id/cb_bell"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cb_bell" />
+                android:text="@string/cb_bell"
+                android:textColor="#8a8a8a"
+                android:textColorLink="#32cd32" />
 
             <CheckBox
                 android:id="@+id/cb_blacksmithing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cb_bs" />
+                android:text="@string/cb_bs"
+                android:textColor="#8a8a8a"
+                android:textColorLink="#32cd32" />
         </LinearLayout>
 
         <LinearLayout
@@ -134,25 +153,37 @@
                 android:id="@+id/cb_bridge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cb_bridge" />
+                android:text="@string/cb_bridge"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
 
             <CheckBox
                 android:id="@+id/cb_candle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cb_candle" />
+                android:text="@string/cb_candle"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
 
             <CheckBox
                 android:id="@+id/cb_crochet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cb_crocheting" />
+                android:text="@string/cb_crocheting"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
 
             <CheckBox
                 android:id="@+id/cb_dumpster"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cb_dumpster" />
+                android:text="@string/cb_dumpster"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

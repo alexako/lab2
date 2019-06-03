@@ -11,7 +11,8 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#2a2a2a">
 
         <EditText
             android:id="@+id/name"
@@ -25,6 +26,9 @@
             android:ems="10"
             android:hint="@string/prompt_name"
             android:inputType="textPersonName"
+            android:textColor="#8a8a8a"
+            android:textColorHint="#8a8a8a"
+            android:textColorLink="#32cd32"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +40,7 @@
             android:layout_height="32dp"
             android:layout_marginTop="64dp"
             android:text="@string/reg_label"
+            android:textColor="#8a8a8a"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -54,6 +59,9 @@
             android:ems="10"
             android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
+            android:textColor="#8a8a8a"
+            android:textColorHint="#8a8a8a"
+            android:textColorLink="#32cd32"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -70,6 +78,9 @@
             android:ems="10"
             android:hint="@string/prompt_password"
             android:inputType="textPassword"
+            android:textColor="#8a8a8a"
+            android:textColorHint="#8a8a8a"
+            android:textColorLink="#32cd32"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,6 +98,9 @@
             android:ems="10"
             android:hint="@string/prompt_cpassword"
             android:inputType="textPassword"
+            android:textColor="#8a8a8a"
+            android:textColorHint="#8a8a8a"
+            android:textColorLink="#32cd32"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password" />
@@ -109,14 +123,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Male" />
+                android:text="Male"
+                android:textColor="#8a8a8a"
+                android:textColorLink="#32cd32" />
 
             <RadioButton
                 android:id="@+id/radioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Female" />
+                android:text="Female"
+                android:textColor="#8a8a8a"
+                android:textColorLink="#32cd32" />
 
         </RadioGroup>
 

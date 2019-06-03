@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2a2a2a"
     tools:context=".ui.results.Results">
 
     <TextView
@@ -16,7 +17,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/res_label"
+        android:textColor="#8a8a8a"
+        android:textFontWeight="700"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +28,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="144dp"
-        android:layout_height="584dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="32dp"
@@ -36,54 +40,62 @@
             android:id="@+id/resName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/res_name" />
+            android:text="@string/res_name"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/resEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/res_email" />
+            android:text="@string/res_email"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/resPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/res_password" />
+            android:text="@string/res_password"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/resGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/res_gender" />
+            android:text="@string/res_gender"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/resDegree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/res_program" />
+            android:text="@string/res_program"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/resYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/res_year" />
+            android:text="@string/res_year"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/resBirthday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/res_birthday" />
+            android:text="@string/res_birthday"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/resHobbies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/res_hobbies" />
+            android:text="@string/res_hobbies"
+            android:textColor="#8a8a8a" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="203dp"
-        android:layout_height="579dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
@@ -98,48 +110,56 @@
             android:id="@+id/valName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/valEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/valPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/valGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/valDegree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/valYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/valBirthday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#8a8a8a" />
 
         <TextView
             android:id="@+id/valHobbies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#8a8a8a" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
