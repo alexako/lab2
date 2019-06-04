@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.lab1_reyes_a.db;
+package com.example.lab1_reyes_a.db.utils;
 
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;

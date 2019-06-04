@@ -19,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.lab1_reyes_a.R;
+import com.example.lab1_reyes_a.db.AppDatabase;
+import com.example.lab1_reyes_a.db.User;
 import com.example.lab1_reyes_a.ui.results.Results;
 
 import java.util.ArrayList;
@@ -29,6 +31,10 @@ public class RegistrationActivity extends AppCompatActivity
                     Registration2.OnFragmentInteractionListener {
 
     private boolean isOnPage2;
+
+    private AppDatabase mDb;
+
+    private User user;
 
     private String name;
     private String email;
@@ -44,6 +50,8 @@ public class RegistrationActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
+        user = new User();
 
         final Button nextButton = findViewById(R.id.nextReg);
         final EditText passwordField = findViewById(R.id.password);
@@ -76,15 +84,11 @@ public class RegistrationActivity extends AppCompatActivity
                 if (isOnPage2) {
                     storeReg2Values();
                     Intent intent = new Intent(RegistrationActivity.this, Results.class);
-                    intent.putExtra("name", name);
-                    intent.putExtra("email", email);
-                    intent.putExtra("password", password);
-                    intent.putExtra("cPassword", cPassword);
-                    intent.putExtra("gender", gender);
-                    intent.putExtra("degree", degree);
-                    intent.putExtra("year", year);
-                    intent.putExtra("birthday", birthday);
-                    intent.putExtra("hobbies", hobbies);
+                    intent.putExtra("email", user.email);
+
+                    mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
+                    mDb.userModel().insertUser(user);
+
                     startActivity(intent);
                     isOnPage2 = false;
                 } else { // Display registration Page 2
@@ -137,11 +141,11 @@ public class RegistrationActivity extends AppCompatActivity
         EditText pText = findViewById(R.id.password);
         EditText cText = findViewById(R.id.cPassword);
 
-        name = nText.getText().toString();
-        email = eText.getText().toString();
-        password = pText.getText().toString();
-        cPassword = cText.getText().toString();
-        gender = getSelectedRadio();
+        user.name = nText.getText().toString();
+        user.email = eText.getText().toString();
+        user.password = pText.getText().toString();
+        user.cPassword = cText.getText().toString();
+        user.gender = getSelectedRadio();
     }
 
     private void storeReg2Values() {
@@ -149,10 +153,10 @@ public class RegistrationActivity extends AppCompatActivity
         EditText yearText = findViewById(R.id.yearLevel);
         EditText bText = findViewById(R.id.birthday);
 
-        degree = dText.getSelectedItem().toString();
-        year = yearText.getText().toString();
-        birthday = bText.getText().toString();
-        hobbies = getSelectedCheckboxes();
+        user.degree = dText.getSelectedItem().toString();
+        user.year = yearText.getText().toString();
+        user.birthday = bText.getText().toString();
+        user.hobbies = getSelectedCheckboxes();
     }
 
     private String getSelectedRadio() {
@@ -184,7 +188,7 @@ public class RegistrationActivity extends AppCompatActivity
         if (c7.isChecked()) h.add(c7.getText().toString());
         if (c8.isChecked()) h.add(c8.getText().toString());
 
-        return TextUtils.join(", ", h.toArray(new String[0]));
+        return TextUtils.join(", ", h);
     }
 
     @Override

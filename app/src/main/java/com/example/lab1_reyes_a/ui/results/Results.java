@@ -2,9 +2,12 @@ package com.example.lab1_reyes_a.ui.results;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.example.lab1_reyes_a.R;
+import com.example.lab1_reyes_a.db.AppDatabase;
+import com.example.lab1_reyes_a.db.User;
 
 public class Results extends AppCompatActivity {
 
@@ -13,14 +16,10 @@ public class Results extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        String name = getIntent().getStringExtra("name");
+        AppDatabase mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
+
         String email = getIntent().getStringExtra("email");
-        String password = getIntent().getStringExtra("password");
-        String gender = getIntent().getStringExtra("gender");
-        String degree = getIntent().getStringExtra("degree");
-        String year = getIntent().getStringExtra("year");
-        String birthday = getIntent().getStringExtra("birthday");
-        String hobbies = getIntent().getStringExtra("hobbies");
+        User user = mDb.userModel().findUserByEmail(email);
 
         TextView valName = findViewById(R.id.valName);
         TextView valEmail= findViewById(R.id.valEmail);
@@ -32,17 +31,17 @@ public class Results extends AppCompatActivity {
         TextView valHobbies = findViewById(R.id.valHobbies);
 
         String pass = "";
-        for (int i = 0; i < password.length(); i++) {
+        for (int i = 0; i < user.password.length(); i++) {
             pass += "*";
         }
 
-        valName.setText(name);
-        valEmail.setText(email);
+        valName.setText(user.name);
+        valEmail.setText(user.email);
         valPass.setText(pass);
-        valGender.setText(gender);
-        valDegree.setText(degree);
-        valYear.setText(year);
-        valBirthday.setText(birthday);
-        valHobbies.setText(hobbies);
+        valGender.setText(user.gender);
+        valDegree.setText(user.degree);
+        valYear.setText(user.year);
+        valBirthday.setText(user.birthday);
+        valHobbies.setText(user.hobbies);
     }
 }
