@@ -86,6 +86,7 @@ public class RegistrationActivity extends AppCompatActivity
                     intent.putExtra("birthday", birthday);
                     intent.putExtra("hobbies", hobbies);
                     startActivity(intent);
+                    isOnPage2 = false;
                 } else { // Display registration Page 2
 
                     storeReg1Values();
