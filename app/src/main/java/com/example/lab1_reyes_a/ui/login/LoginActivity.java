@@ -20,7 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lab1_reyes_a.R;
+import com.example.lab1_reyes_a.db.AppDatabase;
+import com.example.lab1_reyes_a.db.User;
 import com.example.lab1_reyes_a.ui.registration.RegistrationActivity;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,6 +41,14 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+
+        AppDatabase mDb = AppDatabase.getDatabase(getApplicationContext());
+        User user = new User();
+        user.name = "Test User";
+        user.email = "akosialexpo@gmail.com";
+        mDb.userModel().insertUser(user);
+        User u = mDb.userModel().findUserByEmail("akosialexpo@gmail.com");
+        System.out.println("user: " + u);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
