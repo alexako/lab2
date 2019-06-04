@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="68dp"
         android:background="#32cd32"
+        android:enabled="true"
         android:text="@string/next_registration"
         android:textColor="#fff"
         android:textSize="14sp"

@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -44,6 +46,29 @@ public class RegistrationActivity extends AppCompatActivity
         setContentView(R.layout.activity_registration);
 
         final Button nextButton = findViewById(R.id.nextReg);
+        final EditText passwordField = findViewById(R.id.password);
+        final EditText cPasswordField = findViewById(R.id.cPassword);
+
+//        TextWatcher afterTextChangedListener = new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//                // ignore
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                // ignore
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                if (passwordField.getText().toString().equals(cPasswordField.getText().toString())) {
+//                    nextButton.setEnabled(true);
+//                }
+//            }
+//        };
+//        passwordField.addTextChangedListener(afterTextChangedListener);
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
