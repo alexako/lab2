@@ -28,10 +28,11 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDao userModel();
 
-    public static AppDatabase getInMemoryDatabase(Context context) {
+    public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
             INSTANCE =
-                    Room.inMemoryDatabaseBuilder(context.getApplicationContext(), AppDatabase.class)
+                    Room.databaseBuilder(context.getApplicationContext(),
+                            AppDatabase.class, "lab2-database")
                     // To simplify the codelab, allow queries on the main thread.
                     // Don't do this on a real app! See PersistenceBasicSample for an example.
                     .allowMainThreadQueries()

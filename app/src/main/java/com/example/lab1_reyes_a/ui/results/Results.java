@@ -16,10 +16,14 @@ public class Results extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        AppDatabase mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
+        AppDatabase mDb = AppDatabase.getDatabase(getApplicationContext());
 
         String email = getIntent().getStringExtra("email");
+        System.out.println("intent param: " + email);
         User user = mDb.userModel().findUserByEmail(email);
+
+        System.out.println("retrieved user: " + user.email);
+        System.out.println("retrieved user: " + user.password);
 
         TextView valName = findViewById(R.id.valName);
         TextView valEmail= findViewById(R.id.valEmail);
@@ -31,8 +35,10 @@ public class Results extends AppCompatActivity {
         TextView valHobbies = findViewById(R.id.valHobbies);
 
         String pass = "";
-        for (int i = 0; i < user.password.length(); i++) {
-            pass += "*";
+        if (!user.password.isEmpty()) {
+            for (int i = 0; i < user.password.length(); i++) {
+                pass += "*";
+            }
         }
 
         valName.setText(user.name);

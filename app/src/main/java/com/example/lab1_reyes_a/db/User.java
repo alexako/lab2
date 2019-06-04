@@ -28,13 +28,25 @@ public class User {
     @PrimaryKey
     @NonNull
     public String id;
+
+    @NonNull
     public String name;
+
+    @NonNull
     public String email;
+
+    @NonNull
     public String password;
+
     public String cPassword;
+
     public String gender;
+
     public String degree;
+
     public String year;
+
     public String birthday;
+
     public String hobbies;
 }

@@ -36,16 +36,6 @@ public class RegistrationActivity extends AppCompatActivity
 
     private User user;
 
-    private String name;
-    private String email;
-    private String password;
-    private String cPassword;
-    private String gender;
-    private String degree;
-    private String year;
-    private String birthday;
-    private String hobbies;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +76,7 @@ public class RegistrationActivity extends AppCompatActivity
                     Intent intent = new Intent(RegistrationActivity.this, Results.class);
                     intent.putExtra("email", user.email);
 
-                    mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
+                    mDb = AppDatabase.getDatabase(getApplicationContext());
                     mDb.userModel().insertUser(user);
 
                     startActivity(intent);
@@ -194,6 +184,12 @@ public class RegistrationActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        AppDatabase.destroyInstance();
+        super.onDestroy();
     }
 
     public void showDatePickerDialog(View v) {
