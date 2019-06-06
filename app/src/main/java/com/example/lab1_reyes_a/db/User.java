@@ -20,11 +20,10 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import java.util.List;
-
 
 @Entity
 public class User {
+
     @PrimaryKey
     @NonNull
     public String id;
@@ -49,4 +48,5 @@ public class User {
     public String birthday;
 
     public String hobbies;
+
 }

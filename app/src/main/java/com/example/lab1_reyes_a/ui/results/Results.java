@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.lab1_reyes_a.R;
 import com.example.lab1_reyes_a.db.AppDatabase;
+import com.example.lab1_reyes_a.db.DbHelper;
 import com.example.lab1_reyes_a.db.User;
 
 public class Results extends AppCompatActivity {
@@ -16,14 +17,9 @@ public class Results extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        AppDatabase mDb = AppDatabase.getDatabase(getApplicationContext());
-
         String email = getIntent().getStringExtra("email");
-        System.out.println("intent param: " + email);
-        User user = mDb.userModel().findUserByEmail(email);
+        User user = new DbHelper(this).getUserByEmail(email);
 
-        System.out.println("retrieved user: " + user.email);
-        System.out.println("retrieved user: " + user.password);
 
         TextView valName = findViewById(R.id.valName);
         TextView valEmail= findViewById(R.id.valEmail);

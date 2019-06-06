@@ -3,6 +3,7 @@ package com.example.lab1_reyes_a.ui.login;
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,11 +20,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amitshekhar.DebugDB;
 import com.example.lab1_reyes_a.R;
 import com.example.lab1_reyes_a.db.AppDatabase;
+import com.example.lab1_reyes_a.db.DbHelper;
 import com.example.lab1_reyes_a.db.User;
 import com.example.lab1_reyes_a.ui.registration.RegistrationActivity;
 
+import java.io.FileOutputStream;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
@@ -42,13 +46,27 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
-        AppDatabase mDb = AppDatabase.getDatabase(getApplicationContext());
-        User user = new User();
-        user.name = "Test User";
-        user.email = "akosialexpo@gmail.com";
-        mDb.userModel().insertUser(user);
-        User u = mDb.userModel().findUserByEmail("akosialexpo@gmail.com");
-        System.out.println("user: " + u);
+//        AppDatabase db = AppDatabase.getDatabase(this);
+//        db.userModel().insertUser(new User());
+//        User u = db.userModel().findUserByEmail("test@email.com");
+
+//        new DbHelper(this).addUser(new User());
+//        User u = new DbHelper(this).GetAllUsers().get(0);
+
+        System.out.println("-------------------");
+        System.out.println(DebugDB.getAddressLog());
+
+        String filename = "student_registration";
+        String fileContents = "Hello world!";
+        FileOutputStream outputStream;
+
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(fileContents.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override

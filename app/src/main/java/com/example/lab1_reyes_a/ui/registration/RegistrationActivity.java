@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.lab1_reyes_a.R;
 import com.example.lab1_reyes_a.db.AppDatabase;
+import com.example.lab1_reyes_a.db.DbHelper;
 import com.example.lab1_reyes_a.db.User;
 import com.example.lab1_reyes_a.ui.results.Results;
 
@@ -76,8 +77,13 @@ public class RegistrationActivity extends AppCompatActivity
                     Intent intent = new Intent(RegistrationActivity.this, Results.class);
                     intent.putExtra("email", user.email);
 
-                    mDb = AppDatabase.getDatabase(getApplicationContext());
-                    mDb.userModel().insertUser(user);
+//                    mDb = AppDatabase.getDatabase(getApplicationContext());
+//                    mDb.userModel().insertUser(user);
+
+                    new DbHelper(RegistrationActivity.this).addUser(user);
+                    User u = new DbHelper(RegistrationActivity.this).GetAllUsers().get(0);
+                    System.out.println("-------------------");
+                    System.out.println(u);
 
                     startActivity(intent);
                     isOnPage2 = false;
