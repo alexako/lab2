@@ -56,18 +56,6 @@ public class LoginActivity extends AppCompatActivity {
         System.out.println("-------------------");
         System.out.println(DebugDB.getAddressLog());
 
-        String filename = "student_registration";
-        String fileContents = "Hello world!";
-        FileOutputStream outputStream;
-
-        try {
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-            outputStream.write(fileContents.getBytes());
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
