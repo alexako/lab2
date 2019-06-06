@@ -7,26 +7,185 @@
     tools:context=".ui.login.Registration2">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#2a2a2a">
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Last"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/formLabel2"
+            android:layout_width="192dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="64dp"
+            android:text="@string/reg_label"
+            android:textColor="#8a8a8a"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/degreeProgram"
+            android:layout_width="252dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="72dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/formLabel2" />
+
+        <EditText
+            android:id="@+id/yearLevel"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:ems="10"
+            android:hint="@string/prompt_year"
+            android:inputType="number"
+            android:textColor="#8a8a8a"
+            android:textColorHint="#8a8a8a"
+            android:textColorLink="#32cd32"
+            app:layout_constraintBottom_toBottomOf="@+id/degreeProgram"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/degreeProgram"
+            app:layout_constraintTop_toTopOf="@+id/degreeProgram" />
+
+        <EditText
+            android:id="@+id/birthday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:ems="10"
+            android:hint="@string/prompt_birthday"
+            android:inputType="date"
+            android:onClick="showDatePickerDialog"
+            android:textColor="#8a8a8a"
+            android:textColorHint="#8a8a8a"
+            android:textColorLink="#32cd32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/degreeProgram" />
+
+        <TextView
+            android:id="@+id/hobbiesLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/prompt_hobbies"
+            android:textColor="#8a8a8a"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/birthday" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="137dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hobbiesLabel">
+
+            <CheckBox
+                android:id="@+id/cb_aircraft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_aircraft"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
+
+            <CheckBox
+                android:id="@+id/cb_amRadio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_amradio"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
+
+            <CheckBox
+                android:id="@+id/cb_bell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_bell"
+                android:textColor="#8a8a8a"
+                android:textColorLink="#32cd32" />
+
+            <CheckBox
+                android:id="@+id/cb_blacksmithing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_bs"
+                android:textColor="#8a8a8a"
+                android:textColorLink="#32cd32" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="175dp"
+            android:layout_height="134dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+            <CheckBox
+                android:id="@+id/cb_bridge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_bridge"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
+
+            <CheckBox
+                android:id="@+id/cb_candle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_candle"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
+
+            <CheckBox
+                android:id="@+id/cb_crochet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_crocheting"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
+
+            <CheckBox
+                android:id="@+id/cb_dumpster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_dumpster"
+                android:textColor="#8a8a8a"
+                android:textColorHint="#8a8a8a"
+                android:textColorLink="#32cd32" />
+        </LinearLayout>
+
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>

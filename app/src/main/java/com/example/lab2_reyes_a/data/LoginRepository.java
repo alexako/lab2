@@ -1,6 +1,6 @@
-package com.example.lab1_reyes_a.data;
+package com.example.lab2_reyes_a.data;
 
-import com.example.lab1_reyes_a.data.model.LoggedInUser;
+import com.example.lab2_reyes_a.data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

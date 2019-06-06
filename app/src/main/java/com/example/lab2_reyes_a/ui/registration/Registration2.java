@@ -1,25 +1,26 @@
-package com.example.lab1_reyes_a.ui.registration;
+package com.example.lab2_reyes_a.ui.registration;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
-import com.example.lab1_reyes_a.R;
+import com.example.lab2_reyes_a.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Registration1.OnFragmentInteractionListener} interface
+ * {@link Registration2.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Registration1#newInstance} factory method to
+ * Use the {@link Registration2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Registration1 extends Fragment {
+public class Registration2 extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +32,7 @@ public class Registration1 extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Registration1() {
+    public Registration2() {
         // Required empty public constructor
     }
 
@@ -41,11 +42,11 @@ public class Registration1 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Registration1.
+     * @return A new instance of fragment Registration2.
      */
     // TODO: Rename and change types and number of parameters
-    public static Registration1 newInstance(String param1, String param2) {
-        Registration1 fragment = new Registration1();
+    public static Registration2 newInstance(String param1, String param2) {
+        Registration2 fragment = new Registration2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,8 +66,15 @@ public class Registration1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_registration2, container, false);
+        Spinner dropdown = view.findViewById(R.id.degreeProgram);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.degree_programs, android.R.layout.simple_spinner_dropdown_item);
+        dropdown.setAdapter(adapter);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration1, container, false);
+//        return inflater.inflate(R.layout.fragment_registration2, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

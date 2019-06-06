@@ -1,4 +1,4 @@
-package com.example.lab1_reyes_a.ui.login;
+package com.example.lab2_reyes_a.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.

@@ -1,4 +1,4 @@
-package com.example.lab1_reyes_a;
+package com.example.lab2_reyes_a;
 
 import org.junit.Test;
 

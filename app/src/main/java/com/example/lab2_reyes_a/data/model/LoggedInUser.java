@@ -1,4 +1,4 @@
-package com.example.lab1_reyes_a.data.model;
+package com.example.lab2_reyes_a.data.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

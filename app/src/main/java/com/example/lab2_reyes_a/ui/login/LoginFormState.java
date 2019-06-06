@@ -1,4 +1,4 @@
-package com.example.lab1_reyes_a.ui.login;
+package com.example.lab2_reyes_a.ui.login;
 
 import android.support.annotation.Nullable;
 

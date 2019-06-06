@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Lab1-Reyes_A</string>
 
+    <string name="reg_label">User Registration</string>
+    <string name="res_label">User Information</string>
     <string name="next_registration">Next</string>
 
     <!-- Registration 1 -->
@@ -15,6 +17,38 @@
     <string name="prompt_year">Year Level</string>
     <string name="prompt_birthday">Birthday</string>
     <string name="prompt_hobbies">Hobbies</string>
+
+    <!-- Degree Program spinner items list -->
+    <string-array name="degree_programs">
+        <item>Computer Science</item>
+        <item>Information Technology</item>
+        <item>Information Systems</item>
+        <item>Computer Engineering</item>
+        <item>Electronics Engineering</item>
+        <item>Physics</item>
+        <item>Statistics</item>
+        <item>Mechanical Engineering</item>
+    </string-array>
+
+    <!-- Hobbies checkboxes -->
+    <string name="cb_aircraft">Aircraft Spotting</string>
+    <string name="cb_amradio">Amateur Radio</string>
+    <string name="cb_bell">Bell Ringing</string>
+    <string name="cb_bs">Blacksmithing</string>
+    <string name="cb_bridge">Bridge Building</string>
+    <string name="cb_candle">Candle Making</string>
+    <string name="cb_crocheting">Crocheting</string>
+    <string name="cb_dumpster">Dumpster Diving</string>
+
+    <!-- Results Labels -->
+    <string name="res_name">Name:</string>
+    <string name="res_email">Email:</string>
+    <string name="res_password">Password:</string>
+    <string name="res_gender">Gender:</string>
+    <string name="res_program">Program:</string>
+    <string name="res_year">Year Level:</string>
+    <string name="res_birthday">Birthday:</string>
+    <string name="res_hobbies">Hobbies:</string>
 
     <string name="action_register">Register</string>
     <string name="action_sign_in">Sign in</string>

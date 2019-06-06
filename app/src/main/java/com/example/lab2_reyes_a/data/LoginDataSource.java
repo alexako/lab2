@@ -1,6 +1,6 @@
-package com.example.lab1_reyes_a.data;
+package com.example.lab2_reyes_a.data;
 
-import com.example.lab1_reyes_a.data.model.LoggedInUser;
+import com.example.lab2_reyes_a.data.model.LoggedInUser;
 
 import java.io.IOException;
 

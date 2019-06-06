@@ -1,4 +1,4 @@
-package com.example.lab1_reyes_a.ui.login;
+package com.example.lab2_reyes_a.ui.login;
 
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
@@ -19,8 +19,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lab1_reyes_a.R;
-import com.example.lab1_reyes_a.ui.registration.RegistrationActivity;
+import com.amitshekhar.DebugDB;
+import com.example.lab2_reyes_a.R;
+import com.example.lab2_reyes_a.ui.registration.RegistrationActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,6 +38,10 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+
+        System.out.println("-------------------");
+        System.out.println(DebugDB.getAddressLog());
+        System.out.println("-------------------");
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -99,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     loginViewModel.login(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString());
+                            passwordEditText.getText().toString(), LoginActivity.this);
                 }
                 return false;
             }
@@ -110,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                        passwordEditText.getText().toString(), LoginActivity.this);
             }
         });
     }

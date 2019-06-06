@@ -1,4 +1,4 @@
-package com.example.lab1_reyes_a.data;
+package com.example.lab2_reyes_a.data;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.

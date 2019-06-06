@@ -1,11 +1,11 @@
-package com.example.lab1_reyes_a.ui.login;
+package com.example.lab2_reyes_a.ui.login;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
-import com.example.lab1_reyes_a.data.LoginDataSource;
-import com.example.lab1_reyes_a.data.LoginRepository;
+import com.example.lab2_reyes_a.data.LoginDataSource;
+import com.example.lab2_reyes_a.data.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
