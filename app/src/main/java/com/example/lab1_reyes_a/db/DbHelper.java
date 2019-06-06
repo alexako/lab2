@@ -40,7 +40,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public User addUser(User user) {
+    public void addUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", user.name);
@@ -58,8 +58,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
             Log.d("e",e.toString());
         }
-
-        return user;
     }
 
     public List<User> GetAllUsers() {
