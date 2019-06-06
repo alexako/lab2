@@ -1,6 +1,9 @@
 package com.example.lab1_reyes_a.data;
 
 import com.example.lab1_reyes_a.data.model.LoggedInUser;
+import com.example.lab1_reyes_a.db.DbHelper;
+import com.example.lab1_reyes_a.db.User;
+import com.example.lab1_reyes_a.ui.login.LoginActivity;
 
 import java.io.IOException;
 

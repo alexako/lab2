@@ -11,6 +11,7 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -46,15 +47,9 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
-//        AppDatabase db = AppDatabase.getDatabase(this);
-//        db.userModel().insertUser(new User());
-//        User u = db.userModel().findUserByEmail("test@email.com");
-
-//        new DbHelper(this).addUser(new User());
-//        User u = new DbHelper(this).GetAllUsers().get(0);
-
         System.out.println("-------------------");
         System.out.println(DebugDB.getAddressLog());
+        System.out.println("-------------------");
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -117,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     loginViewModel.login(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString());
+                            passwordEditText.getText().toString(), LoginActivity.this);
                 }
                 return false;
             }
@@ -128,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                        passwordEditText.getText().toString(), LoginActivity.this);
             }
         });
     }

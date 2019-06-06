@@ -3,12 +3,17 @@ package com.example.lab1_reyes_a.ui.login;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
 import android.util.Patterns;
 
 import com.example.lab1_reyes_a.data.LoginRepository;
 import com.example.lab1_reyes_a.data.Result;
 import com.example.lab1_reyes_a.data.model.LoggedInUser;
 import com.example.lab1_reyes_a.R;
+import com.example.lab1_reyes_a.db.DbHelper;
+import com.example.lab1_reyes_a.db.User;
+
+import java.io.IOException;
 
 public class LoginViewModel extends ViewModel {
 
@@ -28,9 +33,24 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    public void login(String username, String password) {
+    public void login(String username, String password, Context context) {
         // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+        User user = new DbHelper(context).getUserByEmail(username);
+        Result<LoggedInUser> result;
+
+        try {
+
+            if (password.equals(user.password)) {
+                result = new Result.Success<>(
+                        new LoggedInUser(user.id, user.name));
+            } else {
+                throw new Exception("Invalid password");
+            }
+
+        } catch (Exception e) {
+             result = new Result.Error(new IOException("Error logging in", e));
+        }
+
 
         if (result instanceof Result.Success) {
             LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
