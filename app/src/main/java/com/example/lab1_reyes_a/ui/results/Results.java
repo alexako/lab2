@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.example.lab1_reyes_a.R;
 import com.example.lab1_reyes_a.db.AppDatabase;
 import com.example.lab1_reyes_a.db.DbHelper;
+import com.example.lab1_reyes_a.db.ExportCSV;
 import com.example.lab1_reyes_a.db.User;
 
 public class Results extends AppCompatActivity {
@@ -45,5 +46,7 @@ public class Results extends AppCompatActivity {
         valYear.setText(user.year);
         valBirthday.setText(user.birthday);
         valHobbies.setText(user.hobbies);
+
+        new ExportCSV("users.csv", new DbHelper(this).GetAllUsers());
     }
 }
