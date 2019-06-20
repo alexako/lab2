@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,13 +18,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.lab2_reyes_a.R;
+import com.example.lab2_reyes_a.db.ApiHelper;
 import com.example.lab2_reyes_a.db.AppDatabase;
 import com.example.lab2_reyes_a.db.DbHelper;
 import com.example.lab2_reyes_a.db.User;
 import com.example.lab2_reyes_a.ui.results.Results;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity
         implements Registration1.OnFragmentInteractionListener,
@@ -75,29 +81,32 @@ public class RegistrationActivity extends AppCompatActivity
                     Intent intent = new Intent(RegistrationActivity.this, Results.class);
                     intent.putExtra("email", user.email);
 
-//                    mDb = AppDatabase.getDatabase(getApplicationContext());
-//                    mDb.userModel().insertUser(user);
+                    try {
 
-                    new DbHelper(RegistrationActivity.this).addUser(user);
-                    User u = new DbHelper(RegistrationActivity.this).GetAllUsers().get(0);
-                    System.out.println("-------------------");
-                    System.out.println(u);
+                        JSONObject params = new JSONObject();
+                        params.put("email", "test email");
 
-                    startActivity(intent);
-                    isOnPage2 = false;
+                        Map<String, String> p = new HashMap<>();
+                        p.put("email", "Test email");
+                        ApiHelper api = new ApiHelper();
+                        api.post(RegistrationActivity.this, p);
+
+                        startActivity(intent);
+                        isOnPage2 = false;
+
+                    } catch (Exception ex) {
+                        Log.e("Save error", ex.getMessage());
+                    }
                 } else { // Display registration Page 2
 
                     storeReg1Values();
 
                     FragmentTransaction transaction = RegistrationActivity.this.getSupportFragmentManager().beginTransaction();
 
-                    // Replace whatever is in the fragment_container view with this fragment,
-                    // and add the transaction to the back stack so the user can navigate back
                     Registration2 reg2Fragment = new Registration2();
                     transaction.replace(R.id.fragment_container, reg2Fragment, "REG2");
                     transaction.addToBackStack(null);
 
-                    // Commit the transaction
                     transaction.commit();
 
                     isOnPage2 = true;
@@ -105,25 +114,16 @@ public class RegistrationActivity extends AppCompatActivity
             }
         });
 
-        // Check that the activity is using the layout version with
-        // the fragment_container FrameLayout
         if (findViewById(R.id.fragment_container) != null) {
 
-            // However, if we're being restored from a previous state,
-            // then we don't need to do anything and should return or else
-            // we could end up with overlapping fragments.
             if (savedInstanceState != null) {
                 return;
             }
 
-            // Create a new Fragment to be placed in the activity layout
             Registration1 reg1Fragment = new Registration1();
 
-            // In case this activity was started with special instructions from an
-            // Intent, pass the Intent's extras to the fragment as arguments
             reg1Fragment.setArguments(getIntent().getExtras());
 
-            // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, reg1Fragment).commit();
         }

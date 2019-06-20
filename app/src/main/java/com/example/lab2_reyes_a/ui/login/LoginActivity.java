@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.amitshekhar.DebugDB;
 import com.example.lab2_reyes_a.R;
+import com.example.lab2_reyes_a.db.ApiHelper;
 import com.example.lab2_reyes_a.ui.registration.RegistrationActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -113,9 +114,13 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString(), LoginActivity.this);
+                EditText email = findViewById(R.id.username);
+                TextView result = findViewById(R.id.result);
+                ApiHelper api = new ApiHelper();
+                api.get(LoginActivity.this, email.getText().toString(), result);
+//                loadingProgressBar.setVisibility(View.VISIBLE);
+//                loginViewModel.login(usernameEditText.getText().toString(),
+//                        passwordEditText.getText().toString(), LoginActivity.this);
             }
         });
     }

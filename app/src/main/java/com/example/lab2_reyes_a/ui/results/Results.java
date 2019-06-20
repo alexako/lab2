@@ -49,7 +49,6 @@ public class Results extends AppCompatActivity {
         valBirthday.setText(user.birthday);
         valHobbies.setText(user.hobbies);
 
-        new ExportCSV("users.csv", new DbHelper(this).GetAllUsers());
 
         Button signInButton = findViewById(R.id.signIn);
         signInButton.setOnClickListener(new View.OnClickListener() {
