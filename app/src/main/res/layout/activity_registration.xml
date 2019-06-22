@@ -7,29 +7,35 @@
     android:background="#2a2a2a"
     tools:context=".ui.registration.RegistrationActivity">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/nextReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
-        android:background="#32cd32"
-        android:enabled="true"
-        android:text="@string/next_registration"
-        android:textColor="#fff"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="411dp"
+                android:layout_height="wrap_content">
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/nextReg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:background="#32cd32"
+                android:enabled="true"
+                android:text="@string/next_registration"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

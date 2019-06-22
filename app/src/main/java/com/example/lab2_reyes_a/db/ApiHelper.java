@@ -126,29 +126,13 @@ public class ApiHelper {
                     public void onErrorResponse(VolleyError error) {
                         Log.e("Post error", error.toString());
                         Toast.makeText(context,
-                                "Save successful! " + error.toString(),
+                                "Save error: " + error.toString(),
                                 Toast.LENGTH_LONG).show();
                     }
                 }) {
 
             @Override
             protected Map<String, String> getParams() {
-//                Map<String, String> map = new HashMap<>();
-
-//                Iterator<String> keysItr = params.keys();
-//                while(keysItr.hasNext()) {
-//                    try {
-//
-//                        String key = keysItr.next();
-//                        String value = params.get(key).toString();
-//
-//                        map.put(key, value);
-//                    } catch (Exception ex) {
-//                        Log.e("Post params error", ex.getMessage());
-//                    }
-//                }
-
-//                Log.e("params", map.get("email"));
                 return params;
             }
         };
